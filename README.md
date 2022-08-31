@@ -15,7 +15,7 @@ and helps to quickly count the acoustic
 properties of the standard windows with and without air inlets.
 Parameters of glass units and inlets are taken from company MSSQL database.
 
-![Main window](acscreen.png)
+![Main window](acscreen.PNG)
 
 ## Technologies
 
