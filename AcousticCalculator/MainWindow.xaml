@@ -5,8 +5,94 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AcousticCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Kalkulator akustyki" Height="340" Width="700" ResizeMode="CanMinimize">
+
     <Grid>
+        <StackPanel HorizontalAlignment="Stretch">
+            <WrapPanel>
+                <GroupBox x:Name="gboxWindowDimension" Header="Wymiar konstrukcji" Padding="10" Margin="10">
+                    <StackPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblWidth" Content="Szerokość [mm]" Margin="0,0,10,5"/>
+                            <TextBox x:Name="txtWidth" Width="80" Height="25"/>
+                        </WrapPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblHeight" Content="Wysokość [mm]" Margin="0,0,10,5"/>
+                            <TextBox x:Name="txtHeight" Width="80" Height="25" TextChanged="txtHeight_TextChanged"></TextBox>
+                        </WrapPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblArea" Content="Powierzchnia [m2]" Margin="0,0,10,5"/>
+                            <TextBox x:Name="txtArea" Width="80" Height="25" IsEnabled="False"></TextBox>
+                        </WrapPanel>
+                    </StackPanel>
+
+                </GroupBox>
+                <GroupBox x:Name="gboxGlass" Header="Pakiet szybowy" Padding="10" Margin="10">
+                    <StackPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblGlassSelect" Content="Pakiet" Margin="0,0,10,5" />
+                            <ComboBox x:Name="cmbGlass" Width="120" Height="25" SelectionChanged="cmbGlass_SelectionChanged" ></ComboBox>
+                        </WrapPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblRw" Content="Rw (max 40dB)" Margin="0,0,10,5"/>
+                            <TextBox x:Name="txtGlassRw" Width="80" Height="25" IsEnabled="False"></TextBox>
+                        </WrapPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <WrapPanel HorizontalAlignment="Right">
+                                <Label x:Name="lblC" Content="C" Margin="0,0,10,5"/>
+                                <TextBox x:Name="txtGlassC" Width="40" Height="25" IsEnabled="False"></TextBox>
+                            </WrapPanel>
+                            <WrapPanel HorizontalAlignment="Right">
+                                <Label x:Name="lblCtr" Content="Ctr" Margin="0,0,10,5"/>
+                                <TextBox x:Name="txtGlassCtr" Width="40" Height="25" IsEnabled="False"></TextBox>
+                            </WrapPanel>
+                        </WrapPanel>
+                        
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox x:Name="gboxScore" Header="Wynik" Padding="10" Margin="10">
+                    <StackPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblScoreCorrection" Content="Korekta" Margin="0,0,10,5"/>
+                            <TextBox x:Name="txtScoreCorrection" Width="80" Height="25" IsEnabled="False"></TextBox>
+                        </WrapPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblScoreRw" Content="Rw" Margin="0,0,10,5"/>
+                            <TextBox x:Name="txtScoreRw" Width="80" Height="25" IsEnabled="False"></TextBox>
+                        </WrapPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblScoreRa2" Content="Ra2" Margin="0,0,10,5"/>
+                            <TextBox x:Name="txtScoreRa2" Width="80" Height="25" IsEnabled="False"></TextBox>
+                        </WrapPanel>
+                    </StackPanel>
+                </GroupBox>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
+                <CheckBox x:Name="cbAir" Content="Nawiewnik" Margin="0,20,0,0" ></CheckBox >
+                <GroupBox x:Name="gboxAir" Header="Nawiewnik" Padding="10" Margin="10" IsEnabled="{Binding Path=IsChecked, ElementName=cbAir}">
+                    <StackPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblAirSelect" Content="Model" Margin="0,0,10,5"/>
+                            <ComboBox x:Name="cmbAir" Width="120" Height="25" SelectionChanged="cmbAir_SelectionChanged" ></ComboBox>
+                        </WrapPanel>
+                        <WrapPanel HorizontalAlignment="Right">
+                            <Label x:Name="lblAirRw" Content="Rw" Margin="0,0,10,5"/>
+                            <TextBox x:Name="txtAirRw" Width="80" Height="25" IsEnabled="False"></TextBox>
+                        </WrapPanel>
+                    </StackPanel>
+                </GroupBox>
+                <StackPanel>
+                    <Button x:Name="btnConfirm" Content="Oblicz" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="150,20,0,0" Width="100" Height="25" Click="btnConfirm_Click"/>
+                </StackPanel>
+                
+                
+            </WrapPanel>
+            <Label x:Name="lblInfo" HorizontalAlignment="Right"/>
+        </StackPanel>
+        
+        
+
+        
 
     </Grid>
 </Window>
