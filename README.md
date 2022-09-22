@@ -1,6 +1,6 @@
 # AcousticCalculator
 
-Simple window acoustics calculator for OknoPlus dealers.
+Simple window acoustics calculator for window dealers.
 
 ## Table of contents
 * [General info](#general-info)
